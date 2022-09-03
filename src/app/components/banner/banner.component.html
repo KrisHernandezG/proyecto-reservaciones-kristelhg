@@ -1,0 +1,40 @@
+<div class="jumbotron">
+  <h1 class="display-4">{{title}}</h1>
+  <p class="lead">{{slogan}}</p>
+  <hr class="my-4">
+  <p>{{text}}</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button" (click)="open(content)">{{buttonText}}</a>
+  </p>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="name">Nombre</label>
+        <div class="input-group">
+          <input id="name" class="form-control" placeholder="Nombre..." name="name" #nameForm (keyup)="setName(nameForm.value)">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="name">Telefono</label>
+        <div class="input-group">
+          <input id="phone" class="form-control" placeholder="Telefono..." name="phone" #phoneForm (keyup)="setPhone(phoneForm.value)">
+        </div>
+      </div>
+      <div>
+        <small *ngIf="name"><strong>Nombre: </strong>{{name}}</small>
+        <br/>
+        <small *ngIf="phone"><strong>Teléfono: </strong>{{phone}}</small>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('se agendo')">Agendar</button>
+  </div>
+</ng-template>

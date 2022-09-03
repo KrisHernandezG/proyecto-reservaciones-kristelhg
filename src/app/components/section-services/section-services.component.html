@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>{{titulo}}</h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4" *ngFor="let service of services">
+      <app-card-services [title]="service.title" [description]="service.description"></app-card-services>
+    </div>
+  </div>
+</div>
